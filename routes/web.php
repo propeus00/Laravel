@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 
 
 /*
@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
 Route::middleware(["auth"])->group(function () {
 
 
@@ -28,7 +29,7 @@ Route::middleware(["auth"])->group(function () {
 
 Route::get('/', "WelcomeController@index")->name("welcome.index");
 Route::resource('categories', 'CategoriesController');
-Auth::routes();
+
 
 Route::middleware(["auth", "checkIsAdmin"])->group(function () {
     Route::put('restore-posts/{post}', "PostsController@restore")->name("restore-posts");
