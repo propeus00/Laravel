@@ -2,7 +2,7 @@
 
 namespace App\Http;
 
-use App\HTTP\Middleware\DeleteAllPostsBeforeDeleteCategory;
+use App\Http\Middleware\DeleteAllPostsBeforeDeleteCategory;
 use App\Http\Middleware\CheckIsAdmin;
 use App\Http\Middleware\NotNullCategory;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
