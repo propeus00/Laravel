@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\HTTP\Middleware\DeleteAllPostsBeforeDeleteCategory;
 use App\Http\Middleware\CheckIsAdmin;
 use App\Http\Middleware\NotNullCategory;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
@@ -65,6 +66,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'notNullCategory' => NotNullCategory::class,
-        "checkIsAdmin" => CheckIsAdmin::class
+        "checkIsAdmin" => CheckIsAdmin::class,
+        "DeleteAllPostsBeforeDeleteCategory" => DeleteAllPostsBeforeDeleteCategory::class
     ];
 }

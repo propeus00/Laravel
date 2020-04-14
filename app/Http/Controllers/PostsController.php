@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Http\Requests\Posts\CreatePostsRequest;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+
 
 
 class PostsController extends Controller
@@ -55,7 +57,8 @@ class PostsController extends Controller
             "content" => $request->content,
             "image" => $image,
             "published_at" => $request->published_at,
-            "category_id" => $request->category
+            "category_id" => $request->category,
+            "user_id" => Auth::user()->id
         ]);
 
         session()->flash("success", "Post " . "'$request->title'" . " created successfully.");
@@ -69,9 +72,9 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        //
+        return view("posts.show", ["post" => $post]);
     }
 
     /**

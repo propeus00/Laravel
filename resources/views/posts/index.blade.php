@@ -16,6 +16,8 @@
             <tbody>
 
                 @foreach ($posts as $post)
+
+                @if ($post->user_id == auth()->user()->id || auth()->user()->isAdmin())
                 <tr>
                     <td>
                         <img src="{{asset('storage/'.$post->image)}}" width="70px" height="70px" alt="">
@@ -71,8 +73,9 @@
                         </form>
                     </td>
                 </tr>
-
+                @endif
                 @endforeach
+
             </tbody>
         </table>
         @else
