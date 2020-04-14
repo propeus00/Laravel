@@ -14,7 +14,7 @@ class CategoriesController extends Controller
     {
         $this->middleware('auth')->except('show');
 
-        $this->middleware("DeleteAllPostsBeforeDeleteCategory")->only(["destroy"]);
+        $this->middleware("checkCategory")->only(["destroy"]);
     }
     /**
      * Display a listing of the resource.

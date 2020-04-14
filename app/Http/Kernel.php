@@ -67,6 +67,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'notNullCategory' => NotNullCategory::class,
         "checkIsAdmin" => CheckIsAdmin::class,
-        "DeleteAllPostsBeforeDeleteCategory" => DeleteAllPostsBeforeDeleteCategory::class
+        "checkCategory" => DeleteAllPostsBeforeDeleteCategory::class
     ];
 }
